@@ -1,9 +1,4 @@
-﻿# Stationeers Visual Studio BepInEx Plugin Template #
-A Visual Studio solution and project template to get started on building your own BepInEx-based Stationeers plugin.
-
-Based on code from silentdeth and his BepInEx plugins for Stationeers.
-
-
+﻿# My Stationeers Mods #
 
 This requires BepInEx 5.4 or better.
 
@@ -14,27 +9,11 @@ This requires BepInEx 5.4 or better.
 
 [Get it here!](https://github.com/BepInEx/BepInEx/releases/latest)
 
+Instructions to install BepInEx: [Stationeers.BepInEx](https://github.com/ICanHazCode/Stationeers.BepInEx#bepinex-install-instructions)
 ---
 
-### BepInEx Install Instructions ###
-* Get the latest release above.
-* Download the appropriate zip file, x64 for Windows, unix for Linux/Mac.
-* In Steam right click on Stationeers, hover the mouse over "Manage" then, click on "Browse Local Files".
-* Copy/extract the contents of the zip folder into your Stationeers directory.
-* You should end up with a BepInEx folder inside your Stationeers directory like: ![picture alt](https://i.imgur.com/PpS9gCl.png)
-* Run the game once. Then exit. This will initilize BepInEx creating some new folders.
-* Navigate to the BepInEx folder in your Stationeers directory.
-* You should have "plugins" and "patchers" folders inside that directory like: ![picture alt](https://i.imgur.com/JRwmSie.png)
-* To tell BepInEx to look in our workshop folders we need to make a symbolic link to that folder. A symbolic link is like a advanced shortcut. You only need to do this **once** to get **all** BepInEx workshop mods to work. 
-1) Mac and Linux computers: We need to be able to open a Terminal window in the BepInEx directory
-  * For Mac: To make things easier to do: [Create a keyboard shortcut](https://www.maketecheasier.com/launch-terminal-current-folder-mac/)
-  * Linux Ubuntu after 15.04, and any Linux using the latest nautilus should have the functionalty already installed.
-2) Download either `setlinks.ps1`(Windows) or `setlinks.sh`(Mac/Linux) from this repository.
-3) Copy `setlinks.ps1`(Windows) or `setlinks.sh`(Linux/Mac) to the BepInEx folder.
-4) Now we execute the script:
-  * For Windows: Right-Click on `setlinks.ps1` and `Run With PowerShell`(Windows). This will ask you to run as Administrator as the commands require elevated permissions.
-  * For Linux: `Right-Click > Open in Terminal` and type `sudo chmod +x setlinks.sh` then hit enter. It may ask you to enter in your password because it's an administrative command.
-  * For Mac: In the BepInEx Folder window, use the keyboard shortcut you setup earlier. Then type `sudo chmod u+x setlinks.sh` and hit enter. It may ask you to enter in your password because it's an administrative command.
-  * For Mac/Linux: Now type `./setlinks.sh` and hit enter. You may need to enter in your password for it to run.
-5) The links should be setup now. Check the patchers and plugins folders in BepInEx for the folder `workshop`.
+## Difficulty Starting Conditions
+Mod That allows mod-added DifficultySettings with their own StartingConditions to apply the conditions to a new game world. This means that any difficulty that has StartingConditions that aren't "Default" will make the new game use those conditions instead of the "Default" or world's StartingConditions settings that Stationeers enforces. If both the Difficulty Setting **_and_** the selected world contain non-"Default" conditions, this mod will ask you which one to use. If the world has non-"Default" and the selected difficulty is "Default" then the world applies, and if the world is "Default" and the difficulty is not, then the difficulty setting applies.
 
+## Workshop Mod Load Order
+This mod fixes the issue with certain mods configurations not working (mainly recipes). This is because Stationeers **always** loads Core first, no matter where it is in the Workshop list. This mod enforces the load order, even for Core, so that mods that change default settings will work. The mods are loaded in reverse order, like original, so this means that the last in the list is loaded first, and the first, last.
