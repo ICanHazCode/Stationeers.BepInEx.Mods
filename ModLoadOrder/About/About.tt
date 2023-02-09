@@ -1,0 +1,61 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ output extension=".xml" #>
+<# /* This file generates the About.xml file during the build process.
+       Edit PluginInfo.cs for Plugin name,author, version and workshop IDs
+       Edit description.ttinclude to set the description of your mod for the workshop.
+       Edit tags.ttinclude to list the tags to include in the About.xml */ 
+
+
+// This section parses the PluginInfo.cs file to get the values we need
+  string PLUGIN_NAME    ="";
+  string PLUGIN_AUTHOR  ="";
+  string PLUGIN_VERSION ="";
+  uint PLUGIN_ID        = 0u;
+  foreach(string line in File.ReadLines(Host.ResolvePath("..\\Source\\PluginInfo.cs")))
+  {
+    if (line.Contains("="))
+    {
+        var l = line.Split('=');
+        if (l[0].Contains("PLUGIN_NAME"))
+        {
+            PLUGIN_NAME = l[1].Trim().Trim(new char[] { '"', ';' });
+        }
+        else if (l[0].Contains("PLUGIN_AUTHOR"))
+        {
+            PLUGIN_AUTHOR = l[1].Trim().Trim(new char[] { '"', ';' });
+        }
+        else if (l[0].Contains("PLUGIN_VERSION"))
+        {
+            PLUGIN_VERSION = l[1].Trim().Trim(new char[] { '"', ';' });
+        }
+        else if (l[0].Contains("PLUGIN_ID"))
+        {
+            PLUGIN_ID = uint.Parse(l[1].Trim().Trim(new char[] { '"', ';' }));
+        }
+    }
+  }
+#>
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name><#= PLUGIN_NAME #></Name>
+  <Author><#= PLUGIN_AUTHOR #></Author>
+  <Version><#= PLUGIN_VERSION #></Version>
+  <Description><#@ include file="description.ttinclude" #></Description>
+<# if(PLUGIN_ID > 0) { #>
+  <!-- This will be your PluginInfo.PLUGIN_ID-->
+  <WorkshopHandle><#= PLUGIN_ID #></WorkshopHandle>
+<# } #>
+  <Tags>
+<#  string tagfile = Host.ResolvePath("tags.ttinclude");
+    if (File.Exists(tagfile))
+    {
+        foreach( string line in File.ReadLines(tagfile))
+        {#>
+    <tag><#= line.Trim() #></tag>
+<#    }
+      } #>
+  </Tags>
+</ModMetadata>
+

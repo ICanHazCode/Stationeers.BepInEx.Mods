@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Workshop Mod Load Order</Name>
+  <Author>X_Blaster</Author>
+  <Version>1.0.0</Version>
+  <Description>Workshop Mod Load Order
+---
+WARNING: This mod will not work unless you install [url=https://github.com/BepInEx/BepInEx/releases/tag/v5.4.21]BepInEx 5.x[/url].
+Instructions to install BepInEx [url=https://github.com/ICanHazCode/Stationeers.BepInEx#bepinex-install-instructions]Stationeers.BepInEx[/url]
+---
+This mod fixes the fact that any mods that change recipes don't work.
+The reason is that Core is [b]always[/b] loaded first, regardless of
+it's location in the Workshop order list.
+
+Workshop items are loaded in reverse: ie: last item is loaded first. This is preserved.
+Core now loads properly in the location it's present in the list.</Description>
+  <Tags>
+    <tag>Mod</tag>
+  </Tags>
+</ModMetadata>
+

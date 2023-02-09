@@ -1,0 +1,24 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="CustomPostBuild" AfterTargets="Build">
+    <PropertyGroup>
+      <MoveToLocation>$(OutDir)plugins</MoveToLocation>
+    </PropertyGroup>
+    <ItemGroup>
+      <FilesToMove Include="$(TargetPath)" />
+      <FilesToMove Include="@(_DebugSymbolsOutputPath)" />
+    </ItemGroup>
+    <MakeDir Directories="$(MoveToLocation)" />
+    <Move SourceFiles="@(FilesToMove)" DestinationFolder="$(MoveToLocation)" />
+  </Target>
+  <Target Name="CustomClean" AfterTargets="Clean">
+    <ItemGroup>
+      <DirsToClean Include="$(OutDir)About" />
+      <DirsToClean Include="$(OutDir)GameData" />
+      <DirsToClean Include="$(OutDir)plugins" />
+      <FilesToClean Include="$(OutDir)plugins\$(TargetFileName)" />
+      <FilesToClean Include="$(OutDir)plugins\*.pdb" />
+    </ItemGroup>
+    <Delete Files="@(FilesToClean)" ContinueOnError="true" />
+    <RemoveDir Directories="@(DirsToClean)" ContinueOnError="true" />
+  </Target>
+</Project>

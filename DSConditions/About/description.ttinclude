@@ -1,0 +1,10 @@
+﻿Starting Conditions enabled Difficulty
+---
+WARNING: This mod will not work unless you install [url=https://github.com/BepInEx/BepInEx/releases/tag/v5.4.21]BepInEx 5.x[/url].
+Instructions to install BepInEx [url=https://github.com/ICanHazCode/Stationeers.BepInEx#bepinex-install-instructions]Stationeers.BepInEx[/url]
+---
+This mod allows custom difficulty settings to use customized (non-Default) StartingConditions.
+
+If the selected world has it's own starting conditions, this mod will ask you which set you want to use.
+
+

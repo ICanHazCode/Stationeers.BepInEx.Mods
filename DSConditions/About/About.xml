@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ModMetadata xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Name>Difficulty Starting Conditions</Name>
+  <Author>X_Blaster</Author>
+  <Version>1.0.2</Version>
+  <Description>Starting Conditions enabled Difficulty
+---
+WARNING: This mod will not work unless you install [url=https://github.com/BepInEx/BepInEx/releases/tag/v5.4.21]BepInEx 5.x[/url].
+Instructions to install BepInEx [url=https://github.com/ICanHazCode/Stationeers.BepInEx#bepinex-install-instructions]Stationeers.BepInEx[/url]
+---
+This mod allows custom difficulty settings to use customized (non-Default) StartingConditions.
+
+If the selected world has it's own starting conditions, this mod will ask you which set you want to use.
+
+
+</Description>
+  <!-- This will be your PluginInfo.PLUGIN_ID-->
+  <WorkshopHandle>2929937198</WorkshopHandle>
+  <Tags>
+    <tag>Mod</tag>
+  </Tags>
+</ModMetadata>
+
