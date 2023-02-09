@@ -14,6 +14,8 @@ it's location in the Workshop order list.
 
 Workshop items are loaded in reverse: ie: last item is loaded first. This is preserved.
 Core now loads properly in the location it's present in the list.</Description>
+  <!-- This will be your PluginInfo.PLUGIN_ID-->
+  <WorkshopHandle>2930592907</WorkshopHandle>
   <Tags>
     <tag>Mod</tag>
   </Tags>
